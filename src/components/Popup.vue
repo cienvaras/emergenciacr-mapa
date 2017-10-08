@@ -64,6 +64,9 @@ export default {
 </script>
 
 <style>
+.popup {
+  font-family: 'Source Sans Pro', sans-serif;
+}
 .field {
   margin-bottom: 10px;
 }
