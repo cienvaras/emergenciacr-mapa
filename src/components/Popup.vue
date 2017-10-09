@@ -1,19 +1,17 @@
 <template>
   <div class="popup">
-    <h3>{{ categoryNames[category] }}</h3>
-    <div class="popup__admin-division">
-      <div class="field field--province" v-if="province">
-        <div class="field__label">Provincia</div>
-        <div class="field__value">{{ province }}</div>
-      </div>
-      <div class="field field--canton" v-if="canton">
-        <div class="field__label">Cantón</div>
-        <div class="field__value">{{ canton }}</div>
-      </div>
-      <div class="field field--district" v-if="district">
-        <div class="field__label">Distrito</div>
-        <div class="field__value">{{ district }}</div>
-      </div>
+    <h3 class="popup-title">{{ categoryNames[category] }}</h3>
+    <div class="field field--province" v-if="province">
+      <div class="field__label">Provincia</div>
+      <div class="field__value">{{ province }}</div>
+    </div>
+    <div class="field field--canton" v-if="canton">
+      <div class="field__label">Cantón</div>
+      <div class="field__value">{{ canton }}</div>
+    </div>
+    <div class="field field--district" v-if="district">
+      <div class="field__label">Distrito</div>
+      <div class="field__value">{{ district }}</div>
     </div>
     <div class="field field--address" v-if="address">
       <div class="field__label">Dirección exacta</div>
@@ -70,18 +68,28 @@ export default {
 <style>
 .popup {
   font-family: 'Source Sans Pro', sans-serif;
+  padding-bottom: 45px;
+  font-size: 1.4rem;
+}
+.popup-title {
+  margin: 0 0 10px 0;
 }
 .field {
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 .field__label {
   font-weight: bold;
 }
-.popup__admin-division {
-  display: flex;
-  margin-bottom: 10px;
+.actions {
+  position: absolute;
+  bottom: 13px;
+  left: 19px;
+  right: 19px;
+  height: 40px;
+  padding-top: 5px;
+  background-color: #fff;
 }
-.popup__admin-division div {
-  flex: 0 0 33%;
+.popup .button {
+  color: #fff;
 }
 </style>

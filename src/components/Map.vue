@@ -168,7 +168,11 @@ export default {
   width: 300px;
 }
 .leaflet-popup-content {
-  max-height: 300px;
+  max-height: 320px;
   overflow-y: scroll;
+}
+.leaflet-container a.leaflet-popup-close-button {
+  font-size: 2.4rem;
+  padding: 8px 26px 0 0;
 }
 </style>

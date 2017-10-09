@@ -42,4 +42,13 @@ body {
   font-size: 3.2rem;
   margin: 0;
 }
+.button {
+  display: inline-block;
+  background-color: #fdaa51;
+  color: #fff;
+  padding: 8px 15px;
+  text-decoration: none;
+  font-size: 1.4rem;
+  border-radius: 3px;
+}
 </style>
