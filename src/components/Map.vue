@@ -161,8 +161,8 @@ export default {
   }
 }
 .vue2leaflet-map {
-  height: auto;
-  width: auto;
+  height: auto !important;
+  width: auto !important;
   flex: 1 0 auto;
 }
 .leaflet-popup {
