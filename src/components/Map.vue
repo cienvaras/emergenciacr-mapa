@@ -22,17 +22,17 @@
     <v-map :zoom="map.zoom" :center="map.center" :options="mapOptions">
       <v-tilelayer :url="map.url" :attribution="map.attribution"></v-tilelayer>
       <v-marker-cluster :options="clusterOptions" v-if="filters.albergues">
-        <v-marker v-for="marker in albergues" :key="marker.id" :lat-lng="marker.coords">
+        <v-marker v-for="marker in albergues" :key="marker.id" :lat-lng="marker.coords" :icon="icons.albergues">
           <v-popup :content="marker.popup"></v-popup>
         </v-marker>
       </v-marker-cluster>
       <v-marker-cluster :options="clusterOptions" v-if="filters.acopio">
-        <v-marker v-for="marker in acopio" :key="marker.id" :lat-lng="marker.coords">
+        <v-marker v-for="marker in acopio" :key="marker.id" :lat-lng="marker.coords" :icon="icons.acopio">
           <v-popup :content="marker.popup"></v-popup>
         </v-marker>
       </v-marker-cluster>
       <v-marker-cluster :options="clusterOptions" v-if="filters.daños">
-        <v-marker v-for="marker in daños" :key="marker.id" :lat-lng="marker.coords">
+        <v-marker v-for="marker in daños" :key="marker.id" :lat-lng="marker.coords" :icon="icons.daños">
           <v-popup :content="marker.popup"></v-popup>
         </v-marker>
       </v-marker-cluster>
@@ -41,9 +41,14 @@
 </template>
 
 <script>
+import L from 'leaflet'
 import Vue2Leaflet from 'vue2-leaflet'
 import Vue2LeafletMarkercluster from 'vue2-leaflet-markercluster'
 import Api from '@/api'
+import markerDaños from '../assets/marker-daños.png'
+import markerAlbergues from '../assets/marker-albergues.png'
+import markerAcopio from '../assets/marker-acopio.png'
+import markerShadow from '../assets/marker-shadow.png'
 let api = new Api('1RG1GNItAWGmJUWWAtXZ3k1gRdezB-XT4Izn1hY-2UjI')
 export default {
   name: 'Map',
@@ -74,6 +79,35 @@ export default {
         albergues: true,
         acopio: true,
         daños: true
+      },
+      icons: {
+        albergues: L.icon({
+          iconUrl: markerAlbergues,
+          iconSize: [25, 25],
+          iconAnchor: [13, 13],
+          popupAnchor: [0, -15],
+          shadowUrl: markerShadow,
+          shadowSize: [33, 33],
+          shadowAnchor: [15, 15]
+        }),
+        acopio: L.icon({
+          iconUrl: markerAcopio,
+          iconSize: [25, 25],
+          iconAnchor: [13, 13],
+          popupAnchor: [0, -8],
+          shadowUrl: markerShadow,
+          shadowSize: [33, 33],
+          shadowAnchor: [15, 15]
+        }),
+        daños: L.icon({
+          iconUrl: markerDaños,
+          iconSize: [25, 25],
+          iconAnchor: [13, 13],
+          popupAnchor: [0, -8],
+          shadowUrl: markerShadow,
+          shadowSize: [33, 33],
+          shadowAnchor: [15, 15]
+        })
       }
     }
   },
