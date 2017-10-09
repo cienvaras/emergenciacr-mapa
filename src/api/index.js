@@ -29,7 +29,9 @@ export default class GoogleSheetsApi {
             address: element.gsx$direcciónexacta.$t,
             type: category === 'daños' ? element.gsx$tipodedaño.$t : element.gsx$tipo.$t,
             needs: category !== 'daños' ? element.gsx$necesidades.$t : '',
-            geoUrl: 'geo:' + element.gsx$ubicaciónenelmapa.$t
+            wazeUrl: `https://waze.com/ul?ll=${matches[1]},${matches[2]}`,
+            gmapsUrl: `https://google.com/maps/place/${matches[1]},${matches[2]}`,
+            osmUrl: `http://www.openstreetmap.org/?mlat=${matches[1]}&mlon=${matches[2]}`
           }
           console.log(popupProps)
           const PopupComponent = Vue.extend(Popup)

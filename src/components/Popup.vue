@@ -28,7 +28,9 @@
       <div class="field__value">{{ needs }}</div>
     </div>
     <div class="actions">
-      <a :href="geoUrl" class="button">Abrir en app de mapas</a>
+      <a :href="wazeUrl" class="button">Waze</a>
+      <a :href="gmapsUrl" class="button">Google Maps</a>
+      <a :href="osmUrl" class="button">OSM</a>
     </div>
   </div>
 </template>
@@ -44,7 +46,9 @@ export default {
     'address',
     'type',
     'needs',
-    'geoUrl'
+    'wazeUrl',
+    'gmapsUrl',
+    'osmUrl'
   ],
   data () {
     return {
