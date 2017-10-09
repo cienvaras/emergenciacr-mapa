@@ -148,7 +148,7 @@ export default {
 
 .map {
   display: flex;
-  flex: 1;
+  flex: 1 1 100%;
 }
 .location-list {
   display: none;
@@ -161,6 +161,7 @@ export default {
   }
 }
 .vue2leaflet-map {
+  height: auto;
   width: auto;
   flex: 1 0 auto;
 }
